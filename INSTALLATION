@@ -1,1 +1,81 @@
+Ubuntu CMD :-
+--------------
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+sudo apt-get update
+sudo apt-get install grafana
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
+
+1] Access Grafana :- 
+
+             >> Open your web browser and go to http://localhost:3000
+             >> UN = admin
+             >> PW = admin
+
+2] Basic Configuration :-
+
+             >>    Prometheus: For monitoring and alerting.
+             >>    InfluxDB: Time-series database.
+             >>    MySQL/PostgreSQL: For relational data.
+             >>    Elasticsearch: Search engine and analytics.
+
+                   Navigate to Configuration -> Data Sources -> Add data source and select the appropriate one. 
+                   Follow the prompts to configure it.
+
+3] Create Dashboard :- 
+
+             >> Create > Dashboard
+             >> Adding Panels: Each panel represents a specific visualization (e.g., Graph, Table, Heatmap).
+
+4] Alerting :-
+
+             >> Go to a panel, click on the alert icon, and configure your alert rules.
+             >> Define conditions under which the alert should trigger.
+                Set up notification channels (e.g., Email, Slack).
+
+5] User Management :- 
+
+             >> Admin: Full access.
+             >> Editor: Can create/edit dashboards.
+             >> Viewer: Can view dashboards only.
+                You can manage users by navigating to Server Admin -> Users.
+
+6] Plugins :- 
+
+             >> Grafana has a wide range of plugins that enhance its functionality, including new data sources, 
+                visualizations, and apps
+
+             >> grafana-cli plugins install <plugin-name>
+
+7] Backup & Restore :- 
+
+             >> To backup, simply back up the Grafana database file. If using SQLite, it’s located at 
+               /var/lib/grafana/grafana.db
+
+             >> For MySQL/PostgreSQL, you can dump the database using appropriate tools like mysqldump or pg_dump
+
+8] Security Best Practices :-
+
+             >> Change the default admin password.
+             >> Enable SSL/TLS to encrypt data in transit.
+             >> Set up a reverse proxy with tools like Nginx or Apache for additional security layers.
+             >> Regularly update Grafana to the latest version to apply security patches.
+
+9] Troubleshooting :-
+
+             >> Logs: Grafana logs are essential for troubleshooting issues. Logs are usually located in 
+                      /var/log/grafana.
+
+             >> Common Issues:
+                               Cannot connect to the database: Ensure the database is running and accessible.
+
+                               Data source error: Double-check the configuration and credentials.
+
+10] Grafana Uninstall :- 
+
+             >>sudo apt-get remove --purge grafana
+
+             >> sudo rm -rf /var/lib/grafana /etc/grafana
+
 
