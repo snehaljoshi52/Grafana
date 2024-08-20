@@ -82,7 +82,7 @@ docker stop grafana
 
 10] Grafana Uninstall :- 
 
-             >>sudo apt-get remove --purge grafana
+             >> sudo apt-get remove --purge grafana
 
              >> sudo rm -rf /var/lib/grafana /etc/grafana
 
